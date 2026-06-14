@@ -1,0 +1,29 @@
+businesses = [
+    {"name": "Aarong",   "category": "clothing"},
+    {"name": "Blue",     "category": "clothing"},
+    {"name": "Bilashi",  "category": "design"},
+]
+
+message_template = (
+    "Hello! My name is Ador, I'm a digital marketing specialist based in Dhaka.\n"
+    "I came across {name} and think there's a real opportunity to grow your\n"
+    "{category} business through targeted Meta ads on Facebook and Instagram.\n"
+    "I've helped similar businesses increase their reach without wasting budget.\n"
+    "Would you be open to a quick 10-minute chat?\n\n"
+    "Best regards,\n"
+    "Ador"
+)
+
+for business in businesses:
+    try:
+        message = message_template.format(
+            name=business["name"],
+            category=business["category"]
+        )
+        print("─" * 45)
+        print(message)
+    except KeyError as e:
+        print(f"Skipping — missing field: {e}")
+
+print("─" * 45)
+print(f"Done. {len(businesses)} messages generated.")
